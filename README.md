@@ -57,7 +57,7 @@ curl --data-binary "@src/test/resources/trade.csv" -H 'Content-Type: text/csv' h
 ## Limitations of the Code
 
 1. **Concurrency:**
-   - The application uses `ConcurrentHashMap` for caching product data and `ConcurrentLinkedDeque` for batch records collection and processing trades in parallel. While this improves performance, it could still be impacted by the size of the data and the available CPU resources.
+   - The application uses `ConcurrentHashMap` for caching product data and `ConcurrentLinkedQueue` for batch records collection and processing trades in parallel. While this improves performance, it could still be impacted by the size of the data and the available CPU resources.
 
 2. **No External Libraries:**
    - The implementation does not use any external libraries for performance optimization, which could limit the ability to further optimize the code.

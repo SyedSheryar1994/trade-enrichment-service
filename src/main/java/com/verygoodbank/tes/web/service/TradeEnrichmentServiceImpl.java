@@ -10,10 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedDeque;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -71,7 +68,7 @@ public class TradeEnrichmentServiceImpl implements TradeEnrichmentService {
      */
     private Queue<Trade> processTradesInBatches(List<Trade> trades, int customBatchSize) {
         int effectiveBatchSize = customBatchSize > 0 ? customBatchSize : this.batchSize;
-        Queue<Trade> result = new ConcurrentLinkedDeque<>();
+        Queue<Trade> result = new ConcurrentLinkedQueue<>();
 
         IntStream.range(0, (trades.size() + effectiveBatchSize - 1) / effectiveBatchSize)
                 .parallel()
