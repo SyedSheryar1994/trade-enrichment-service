@@ -1,7 +1,6 @@
 package com.verygoodbank.tes.web.validator;
 
 import com.verygoodbank.tes.web.model.Trade;
-import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

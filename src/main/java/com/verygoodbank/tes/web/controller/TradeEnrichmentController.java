@@ -4,7 +4,10 @@ import com.verygoodbank.tes.web.service.TradeEnrichmentService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/v1")
@@ -26,7 +29,6 @@ public class TradeEnrichmentController {
      * Endpoint for enriching trades received as a CSV file.
      *
      * @param fileData    the byte array of the CSV file content.
-     * @param contentType the content type header to validate.
      * @return a list of enriched trades in CSV format.
      */
     @RequestMapping(value = "/enrich", method = RequestMethod.POST, consumes = "text/csv", produces = "text/csv")
